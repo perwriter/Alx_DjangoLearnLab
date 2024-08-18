@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from django.views.generic.detail import DetailView
-from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
 from django.contrib.auth import login
+from django.views.generic.edit import CreateView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import reverse_lazy
+from django.views.generic.detail import DetailView
 
 from .models import Library, Book
 
@@ -26,7 +26,7 @@ class RegisterView(CreateView):
     template_name = 'relationship_app/register.html'
     success_url = reverse_lazy('login')
 
-# Custom login view using the login function
+# Custom login view using the login function (if needed)
 def custom_login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -37,5 +37,3 @@ def custom_login_view(request):
     else:
         form = AuthenticationForm()
     return render(request, 'relationship_app/login.html', {'form': form})
-
-# No need to define custom views for LogoutView as Django provides it
