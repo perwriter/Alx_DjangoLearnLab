@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.content }}</p>
+
+  <h2>Comments</h2>
+  {% for comment in post.comments.all %}
+    <div>
+      <strong>{{ comment.author }}</strong>
+      <p>{{ comment.content }}</p>
+      <small>{{ comment.created_at }}</small>
+      {% if comment.author == user %}
+        <a href="{% url 'edit-comment' comment.pk %}">Edit</a>
+        <a href="{% url 'delete-comment' comment.pk %}">Delete</a>
+      {% endif %}
+    </div>
+  {% empty %}
+    <p>No comments yet.</p>
+  {% endfor %}
+
+  <h2>Add a Comment</h2>
+  <form method="POST" action="{% url 'add-comment' post.pk %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Comment</button>
+  </form>
+</body>
+</html>

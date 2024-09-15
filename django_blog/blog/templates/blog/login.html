@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'blog/css/login.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="username__div"></div>
+      <div>
+        <label for="username">Username</label>
+      </div>
+      <input type="text" name="username" placeholder="Username...">
+    </div>
+    <div class="password__div">
+      <div>
+        <label for="password">Password</label>
+      </div>
+      <input type="password" name="password" placeholder="Enter Password...">
+    </div>
+    <div class="button__div"><button>Submit</button></div>
+    <div>
+      {% if error %}
+        <p>{{error}}</p>
+      {% endif %}
+    </div>
+  </form>
+</body>
+</html>

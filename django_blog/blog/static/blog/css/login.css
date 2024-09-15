@@ -1,0 +1,32 @@
+body {
+  display: grid;
+  place-items: center;
+  height: 100svh;
+}
+
+form {
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 5em;
+
+  .password__div {
+    padding-top: 0.8rem;
+    padding-bottom: 1.7rem;
+  }
+
+  input {
+    width: 20rem;
+    height: 1.9rem;
+    text-indent: 0.6rem;
+  }
+
+  .button__div {
+    width: 100%;
+    text-align: center;
+
+    button {
+      width: 50%;
+      padding-block: 0.6em;
+    }
+  }
+}

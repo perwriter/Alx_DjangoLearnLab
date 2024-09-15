@@ -1,0 +1,16 @@
+body {
+  display: grid;
+  place-items: center;
+  height: 100svh;
+}
+
+.profile {
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 5em;
+}
+
+button {
+  width: 100%;
+  padding-block: 0.6em;
+}

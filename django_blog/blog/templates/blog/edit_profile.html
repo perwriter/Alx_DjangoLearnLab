@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'blog/css/edit_profile.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="username__div">
+      <p>Current username: {{request.user.username}}</p>
+      <p>Enter new username</p>
+      <input type="text" name="new_username" placeholder="Enter new username">
+    </div>
+    <div class="email__div"></div>
+      <p>Current email: {{request.user.email}}</p>
+      <p>Enter new email</p>
+      <input type="email" name="new_email" placeholder="Enter new email">
+    </div>
+    <div class="button__div"><button>Submit</button></div>
+  </form>
+</body>
+</html>
