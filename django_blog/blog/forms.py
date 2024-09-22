@@ -3,6 +3,7 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from .models import Post, Comment
 from django.contrib.auth.forms import UserCreationForm
+from taggit.forms import TagWidget
 
 
 class CreateUserForm(UserCreationForm):
@@ -39,7 +40,11 @@ class CreateUserForm(UserCreationForm):
 class PostForm(ModelForm):
     class Meta:
         model = Post
-        fields = ["title", "content"]
+        fields = ['title', 'content', 'tags']
+        widgets = {
+            'tags': TagWidget(),
+        }
+
 
 
 class CommentForm(forms.ModelForm):
